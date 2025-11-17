@@ -3,6 +3,20 @@ name = "backend"
 version = "0.1.0"
 requires-python = "==3.12.*" # для mediapipe
 dependencies = [
-    "numpy>=2.3.4",
     "scipy>=1.16.3",
+    "tensorflow>=2.19.1",
+    "tensorflow-metal>=1.2.0 ; platform_machine == 'arm64' and sys_platform == 'darwin'",
+    "webeyetrack",
 ]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.1.0",
+    "matplotlib>=3.10.7",
+    "nbformat>=5.10.4",
+    "pandas>=2.3.3",
+    "plotly>=6.4.0",
+]
+
+[tool.uv.sources]
+webeyetrack = { git = "https://github.com/Batmaev/WebEyeTrack", subdirectory = "python" }
